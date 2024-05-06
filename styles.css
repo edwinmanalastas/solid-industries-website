@@ -697,10 +697,16 @@ h3 { /* Category Title */
         width: 100%;
         border-radius: 0;
     }
+    
     /* disable transitions on mobile */
-    .text-content, .about-header, .list-container, .services-header, .services .service,
+    .text-content, .about-header, .list-container, .services-header,
     .choose-header, .choose-col, .reviews .container, .contact {
         transition: none
+    }
+    /* Ensure all transitionable properties are disabled */
+    *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
     }
 
 }
