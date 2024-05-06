@@ -1,4 +1,4 @@
-# solid-industries-website
+# Solid Industries Website
 
 ## Project Overview
 This repository contains the ongoing updates for the Solid Industries website. The website is being updated to enhance user experience and provide up-to-date information about the company's services and capabilities.
