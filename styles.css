@@ -697,11 +697,11 @@ h3 { /* Category Title */
         width: 100%;
         border-radius: 0;
     }
-    /* disable transitions on mobile 
+    /* disable transitions on mobile */
     .text-content, .about-header, .list-container, .services-header, .services .service,
     .choose-header, .choose-col, .reviews .container, .contact {
         transition: none
-    } */
+    }
 
 }
 
