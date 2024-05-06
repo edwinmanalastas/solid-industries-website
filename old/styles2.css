@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    font-family: 'Avenir', sans-serif; /* Ensure Avenir is installed or use a web-safe alternative */
+}
+nav {
+    background-color: #233141;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px;
+}
+nav img {
+    height: 40px; /* Adjust the size as necessary */
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: small;
+    margin: 19px;
+    font-weight: 600; 
+}
+.quote-button {
+    background-color: #EEF8FF;
+    color: #5D9AD9;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 30px; /* for rounded corners */
+    font-weight: bold;
+}

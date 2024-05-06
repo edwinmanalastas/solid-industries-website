@@ -1,0 +1,718 @@
+body {
+    margin: 0;
+    font-family: 'Avenir', sans-serif;
+    color: #222b45;
+    background-color: #edf7ff;
+    font-family: "Lato", sans-serif;
+    /* background-image: linear-gradient(to top, #6e8094, #9baec1); */
+}
+
+nav {
+    background-color: #253242;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.nav-left, .nav-center, .nav-right {
+    flex: 1; /* equal distribution */
+    display: flex;
+    align-items: center; /* vertical alignment */
+}
+
+.nav-center {
+    justify-content: center; /* center the links horizontally */
+}
+
+.nav-right {
+    justify-content: flex-end; /* aligns the quote button to the right */
+}
+
+nav img { /* logo */
+    height: 60px; /* adjust as needed */
+    display: block; 
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: small;
+    margin: 22px 20px;
+    font-weight: 600;
+    position: relative; 
+    overflow: hidden; 
+    display: inline-block; /* Makes sure the underline fits exactly the size of the text */
+    font-family: "Lato", sans-serif;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%; /* Start with no underline visible */
+    height: 2px; /* Thickness of the underline */
+    background-color: #5D9AD9; /* Color of the underline */
+    transition: width 0.3s ease; /* Animates the width */
+}
+
+nav a:hover::after {
+    width: 100%; /* Full width on hover */
+}
+
+.quote-button {
+    background-color: #EEF8FF;
+    color: #5D9AD9;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+    font-family: "Lato", sans-serif;
+}
+
+.quote-button:hover {
+    background-color: #5D9AD9; /* Darker shade on hover */
+    color: #FFFFFF; /* White text on hover */
+}
+
+.text {
+    background-image: url('images/banner.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center center; /* Centers the image horizontally and vertically */
+    position: relative; /* Context for absolute positioning */
+    text-align: left;
+    min-height: 70vh;
+    display: flex; 
+    justify-content: center; 
+    padding: 0px; 
+}
+
+.text-content {
+    position: absolute; /* Absolute positioning relative to its parent */
+    top: 30px; 
+    left: 17%; /* Start from the center. 17.5% default */
+    width: 100%; 
+    max-width: 600px;
+}
+
+
+.text h1 { /* "Welcome To" */
+    padding-left: 0; 
+    padding-right: 20px; 
+    margin-bottom: 0px;
+    padding-bottom: 2px;
+    color: #253242;
+    font-size: 20px; 
+    font-family: "Lato", sans-serif;
+}
+
+.text h12 { /* "Solid Industries " */
+    font-size: 40px;
+    color: #253242;
+    font-weight: 900;
+    font-family: "Lato", sans-serif;
+}
+
+.text h13 {
+    display: block;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.text h2 { /* White Short Sentence */
+    padding-left: 0; 
+    padding-right: 20px; 
+    font-size: 13.5px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-bottom: 3px;
+    max-width: 310px;
+    color: #f1f6f9;
+    font-family: "Lato", sans-serif;
+}
+
+.text p { /* Main Paragraph */
+    padding-left: 0; 
+    padding-right: 20px; 
+    color: #233141;
+    font-size: 11px;
+    max-width: 245px;
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+}
+
+.services-button {
+    background-color: #233e59;
+    color: #e6eaf3;
+    border: none;
+    padding: 10px 25px;
+    font-size: 10px; /* Decrease font size to make the button smaller */
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+}
+
+.services-button:hover {
+    background-color: #e6eaf3; /* Darker shade on hover */
+    color: #233e59; /* White text on hover */
+}
+
+
+/* ------------ABOUT US------------- */
+
+.site-about {  /* Dark blue background */
+    background: linear-gradient(
+        to right,
+        #53677c 0% 10%,
+        #66788c 10%, 10.1%,
+        #43596a 10.1%, 12%,
+        #66788c 12%, 12.1%,
+        #213241 12.1% 88%, /* main color */
+        #66788c 88%, 88.1%,
+        #43596a 88.1%, 90%, /* middle color */
+        #66788c 90%, 90.1%, 
+        #53677c 90.1% 90% /* end color */
+        ); 
+    color: white;
+    padding: 20px 0;
+    font-family: 'Avenir', sans-serif;
+}
+
+.about-container { /* WHOLE ABOUT */
+    text-align: left;
+    display: flex;
+    justify-content: space-around; /* Distribute space evenly */
+    align-items: start; /* Align items at the top */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+.about-column h4 { /* TITLES */
+    text-align: left;
+    margin-top: 0px;
+    padding: 10px;
+    font-size: 20px; /* Header size */
+    margin-bottom: 10px; /* Space below the header */
+    color: #f5fafb;
+}
+
+.about-column p { /* ALL TEXTS */
+    font-size: 12px; 
+    line-height: 1.6;
+    max-width: 500px;
+    color: #f1f6f9;
+}
+
+.about-column .list-container {
+    display: flex;  
+    justify-content: space-between; /* Distributes space between the two lists */
+}
+
+.about-column ul {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0; 
+    margin: 0 15px; 
+    width: 60%; /* Assigns equal width to both lists */
+    font-size: 15px;
+}
+
+.about-column li {
+    margin-bottom: 0em; /* Adds some space between the items */
+}
+
+.about-column li:before {
+    content: "\2713"; /* Unicode checkmark character */
+    color: #4f93db;
+    display: inline-block;
+    width: 1em; 
+    margin-left: -1em; 
+}
+/* --------------SERVICES------------------ */
+
+.services {
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(images/reverse2.jpeg);
+    background-size: cover;
+    background-position: center;
+    color: #efefef;
+    background-attachment: fixed;
+    padding-top: 11px;
+    padding-bottom: 11px;
+}
+.services h1 { /* Our Manufacturing Services */
+    text-align: center;
+    color: #efefef;
+    font-size: 36px;
+    padding-bottom: 10px;
+}
+.services h1::after {
+    content: '';
+    background: #efefef;
+    display: block;
+    height: 3px;
+    width: 170px;
+    margin: 20px auto 5px;
+
+}
+
+.services .container {
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+    padding-left: 100px;
+    padding-right: 100px
+
+}
+.services .row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Create four columns with equal width */
+    grid-gap: 30px; /* Adjust the gap between grid items */
+}
+
+.services .service {
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    transition: transform 0.5s, background 0.5s;
+}
+
+.services i { /* icons */
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #5D9AD9;    ;
+    transition: color 1s ease;
+}
+
+.services h2 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.services .service:hover i {
+    color: #FFFFFF;
+}
+
+/* --------------Choose Us------------- */
+.choose {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* "Why Choose Us" */
+.choose h1 { /* Title */
+    font-size: 36px;
+    font-weight: 600;
+}
+
+/* Title Setence */
+.choose p {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+h3 { /* Category Title */
+    text-align: center;
+    font-weight: 600;
+    margin: 10 0px;
+}
+
+.choose-col p { /* All Text */
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 10px;
+    max-width: 600px;
+}
+
+.row { /* Categories */
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.choose-col{
+    flex-basis: 31%; /* adjust border */
+    background: #c8daf3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    
+    /* if you want to add background image in future */
+    /* background-image: url(images/cnc.webp);
+    background-size: cover;
+    background-position: center; /* Center the background image */
+    /* background-repeat: no-repeat; /* Prevent the background from repeating */
+}
+
+.choose-col:hover {
+    box-shadow: 0 0 20px 0px rgba(33, 50, 65, 0.5); 
+}
+
+/* -------- REVIEWS --------- */
+
+.reviews *, .reviews *::before, .reviews *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.reviews .container {
+    max-width: 1170px;
+    margin: 70px auto;
+    /* padding: 0 15px; */
+}
+
+/* reviews-header */
+.reviews .reviews-header {
+    text-align: center;
+    margin-bottom: 50px; /* bottom text space */
+}
+
+/* What our customers say */
+.reviews .reviews-header .title {
+    font-size: 36px;
+    font-weight: 600;
+    text-transform: capitalize;
+    line-height: 1.2;
+}
+
+.reviews {
+    padding: 50px 0px;
+    background: #d3e3f5; /* review background color */
+    background-size: cover;
+    background-position: center;
+}
+
+/* the box itself */
+.reviews-item {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for contrast */
+    padding: 20px; /* thickness of all sides */
+    border-radius:10px; /* rounded corners */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* adds depth */
+}
+
+.reviews-item .info {
+    display: flex;
+    align-items: center;
+}
+
+.reviews-item img {
+    max-width: 40px;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.reviews .text-box h3 {
+    font-size: 15px;
+    display: flex;
+}
+
+.reviews-item .name {
+    font-size: 24px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: hs1(0,0%,0%);
+    line-height: 1.2;
+}
+
+.reviews-item p {
+    margin-top: 20px;
+    color: hsl(0,0%,40%);
+}
+
+.reviews-item .rating {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #fdd562;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #fff; /* Change color if needed */
+    opacity: 1; /* Ensure they are fully opaque */
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #000; /* Active bullet color */
+}
+
+/* ---------CONTACT US-------- */
+
+
+.contact-container {
+    margin: 100px auto;
+    width: 80%;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/mold2.webp);
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px; /* rounded corners */
+    text-align: center;
+    padding: 100px 0;
+}
+
+.contact h1 {
+    color: #efefef;
+    font-size: 35px;
+    margin-bottom: 40px;
+    padding: 0;
+    font-weight: 900;
+}
+
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid white;
+    padding: 12px 45px;
+    font-size: 15px;
+    font-weight: bold;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+
+/* -------- FADING ANIMATIONS ----------- */
+/* Initial hidden state */
+.text-content, .about-header, .list-container, .services-header,
+.choose-header, .choose-col, .reviews .container, .contact {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.services .service {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+/* State when the element is in the viewport */
+/* MAIN TRANSITION */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-header.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s; 
+}
+
+.list-container.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1s; 
+}
+
+/* SERVICES TRANSITION */
+
+.services .service.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.services .service:nth-child(2), .services .service:nth-child(6)  {
+    transition-delay: 200ms;
+}
+
+.services .service:nth-child(3), .services .service:nth-child(7) {
+    transition-delay: 400ms;
+}
+
+.services .service:nth-child(4), .services .service:nth-child(8) {
+    transition-delay: 600ms;
+}
+
+.services .service:hover {
+    background: #5D9AD9;
+    color: #FFFFFF;
+    transform: scale (1.05);
+    transition-delay: 0s; /* Reset delay for immediate response on hover */
+}
+
+/* WHY CHOOSE US TRANSITION */
+
+.choose .choose-header.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.choose .choose-col.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s; 
+}
+
+.choose .choose-col:nth-child(2) {
+    transition-delay: 1s;
+}
+
+.choose .choose-col:nth-child(3) {
+    transition-delay: 1.5s;
+}
+
+/* REVIEWS */
+
+.reviews .container.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s; 
+}
+
+/* CONTACT US */
+.contact.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s; 
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+
+@media(max-width: 700px) {
+
+    /* navigation bar */
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    
+    .nav-center, .nav-right {
+        position: absolute;
+        background: #f44336;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        left: -100%; /* Start off-screen */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s;
+    }
+    
+    .nav-center a, .nav-right button {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .nav-right {
+        top: auto;
+        bottom: 0;
+    }
+
+    .nav.active .nav-center, .nav.active .nav-right {
+        left: 0; /* Slide in */
+    }
+
+    /* main menu text */
+    
+    .text {
+        background-size: cover;
+
+    }
+    
+    .text h1 {
+        font-size: 15;
+    }
+    .row {
+        flex-direction: column;
+    }
+
+    /* services */
+
+    .services .row {
+        grid-template-columns: repeat(1, 1fr); /* Create two columns with equal width */
+    }
+
+    /* why choose us */
+    .choose p {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+    .site-about {
+        justify-content: center; 
+        align-items: center;
+        text-align: center; 
+    }
+    .about-column { /* about us &  industries we serve*/
+        width: 100%; 
+    }
+    .about-column p {
+        margin-left: 3%;
+        text-align: center;
+    }
+    .about-column h4 {
+        text-align: center; 
+        margin: 0; 
+    }
+    .about-column ul {
+        margin-left: 14% ;
+        text-align: left;
+    }
+
+    /* CONTACT */
+
+
+    .contact h1{
+        font-size: 20px;
+    }
+    .hero-btn {
+        font-size: 15px;
+    }
+
+    .contact-container {
+        margin: 0px auto;
+        width: 100%;
+        border-radius: 0;
+    }
+    /* disable transitions on mobile */
+    .text-content, .about-header, .list-container, .services-header, .services .service,
+    .choose-header, .choose-col, .reviews .container, .contact {
+        transition: none;
+    }
+
+}
+
+@media (min-width: 700px) and (max-width: 1199px) {
+    .services .row {
+        grid-template-columns: repeat(2, 1fr); /* Create three columns with equal width */
+    }
+}
+
+@media(prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
