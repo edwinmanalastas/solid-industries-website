@@ -697,22 +697,16 @@ h3 { /* Category Title */
         width: 100%;
         border-radius: 0;
     }
-    /* disable transitions on mobile */
+    /* disable transitions on mobile 
     .text-content, .about-header, .list-container, .services-header, .services .service,
     .choose-header, .choose-col, .reviews .container, .contact {
-        transition: none;
-    }
+        transition: none
+    } */
 
 }
 
 @media (min-width: 700px) and (max-width: 1199px) {
     .services .row {
         grid-template-columns: repeat(2, 1fr); /* Create three columns with equal width */
-    }
-}
-
-@media(prefers-reduced-motion) {
-    .hidden {
-        transition: none;
     }
 }
