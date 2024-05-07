@@ -7,6 +7,12 @@ function hideMenu() {
     navLinks.style.right = "-200px";
 }
 
+/* sticky transition */
+window.addEventListener("scroll", function() {
+    var header = document.querySelector("nav");
+    header.classList.toggle("sticky", window.scrollY > 0);
+})
+
 const observer = new IntersectionObserver((entries)=> {
     entries.forEach((entry)=> {
         console.log(entry)
