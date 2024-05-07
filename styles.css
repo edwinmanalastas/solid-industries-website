@@ -7,12 +7,21 @@ body {
     /* background-image: linear-gradient(to top, #6e8094, #9baec1); */
 }
 
+ /* Temporarily add borders to all elements
+* {
+    border: 1px solid black;
+} */
+
 nav {
     background-color: #253242;
     color: white;
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
+}
+
+nav i{
+    display: none !important;
 }
 
 .nav-left, .nav-center, .nav-right {
@@ -34,7 +43,7 @@ nav img { /* logo */
     display: block; 
 }
 
-nav a {
+nav .link {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
@@ -47,7 +56,7 @@ nav a {
     font-family: "Lato", sans-serif;
 }
 
-nav a::after {
+nav .link::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -58,7 +67,7 @@ nav a::after {
     transition: width 0.3s ease; /* Animates the width */
 }
 
-nav a:hover::after {
+nav .link:hover::after {
     width: 100%; /* Full width on hover */
 }
 
@@ -98,7 +107,7 @@ nav a:hover::after {
     top: 30px; 
     left: 17%; /* Start from the center. 17.5% default */
     width: 100%; 
-    max-width: 600px;
+    max-width: 400px;
 }
 
 
@@ -331,7 +340,7 @@ h3 { /* Category Title */
     margin: 10 0px;
 }
 
-.choose-col p { /* All Text */
+.choose-col p { /* Parahraph Text */
     font-size: 15px;
     font-weight: 400;
     line-height: 22px;
@@ -589,47 +598,34 @@ h3 { /* Category Title */
     transition-delay: 0s; 
 }
 
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
+@media(max-width: 860px) {
 
+    /* navigation bar on mobile */
 
-@media(max-width: 425px) {
-
-    /* navigation bar */
-    .hamburger {
+    .nav-center {
         display: block;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-    }
-    
-    .nav-center, .nav-right {
         position: absolute;
         background: #f44336;
-        height: 100vh;
-        width: 100%;
+        height: 79.5vh;
+        width: 180px;
         top: 0;
-        left: -100%; /* Start off-screen */
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: left 0.3s;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
     }
     
-    .nav-center a, .nav-right button {
-        display: block;
-        margin: 10px 0;
+    nav i {
+        font-weight: 900 !important;
+        display: block !important;
+        color: #fff !important;
+        margin: 10px !important;
+        font-size: 22px !important;
+        cursor: pointer !important;
     }
 
-    .nav-right {
-        top: auto;
-        bottom: 0;
-    }
-
-    .nav.active .nav-center, .nav.active .nav-right {
-        left: 0; /* Slide in */
+    nav .nav-link {
+        padding: 30px;
     }
 
     /* main menu text */
@@ -653,6 +649,7 @@ h3 { /* Category Title */
     }
 
     /* why choose us */
+
     .choose p {
         max-width: 100%;
         margin: 0 auto;
@@ -661,29 +658,32 @@ h3 { /* Category Title */
     .about-container {
         flex-direction: column;
     }
+    
     .site-about {
         justify-content: center; 
         align-items: center;
         text-align: center; 
     }
+
     .about-column { /* about us &  industries we serve*/
         width: 100%; 
     }
+    
     .about-column p {
-        margin-left: 3%;
         text-align: center;
+        margin: 0 auto;
     }
     .about-column h4 {
         text-align: center; 
         margin: 0; 
     }
     .about-column ul {
-        margin-left: 14% ;
-        text-align: left;
+        margin: 0 auto;
+        text-align: center;
     }
 
-    /* CONTACT */
 
+    /* CONTACT */
 
     .contact h1{
         font-size: 20px;
@@ -697,22 +697,46 @@ h3 { /* Category Title */
         width: 100%;
         border-radius: 0;
     }
-    
-    /* disable transitions on mobile */
+    /* disable transitions on mobile
     .text-content, .about-header, .list-container, .services-header,
     .choose-header, .choose-col, .reviews .container, .contact {
         transition: none
-    }
-    /* Ensure all transitionable properties are disabled */
-    *, *::before, *::after {
-        transition: none !important;
-        animation: none !important;
-    }
+    } */
 
 }
 
 @media (min-width: 700px) and (max-width: 1199px) {
+    
+    /* SERVICES */
     .services .row {
         grid-template-columns: repeat(2, 1fr); /* Create three columns with equal width */
+    }
+
+
+    .services .service:nth-child(3), .services .service:nth-child(4)  {
+        transition-delay: 200ms;
+    }
+
+    .services .service:nth-child(5), .services .service:nth-child(6) {
+        transition-delay: 400ms;
+    }
+
+    .services .service:nth-child(7), .services .service:nth-child(8) {
+        transition-delay: 600ms;
+    }
+
+    .services .service:hover {
+        background: #5D9AD9;
+        color: #FFFFFF;
+        transform: scale (1.05);
+        transition-delay: 0s; /* Reset delay for immediate response on hover */
+    }
+
+    
+}
+
+@media(prefers-reduced-motion) {
+    .hidden {
+        transition: none;
     }
 }
