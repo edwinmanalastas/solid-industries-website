@@ -1,13 +1,16 @@
 body {
     margin: 0;
+    overflow-x: hidden;
     font-family: 'Avenir', sans-serif;
     color: #222b45;
     background-color: #edf7ff;
     font-family: "Lato", sans-serif;
+    padding-top: 70px;
     /* background-image: linear-gradient(to top, #6e8094, #9baec1); */
 }
 
- /* Temporarily add borders to all elements
+ /* Temporarily add borders to all elements */
+ /*
 * {
     border: 1px solid black;
 } */
@@ -18,6 +21,11 @@ nav {
     display: flex;
     align-items: center;
     padding: 5px;
+    position: fixed;  /* Makes the nav bar fixed at the top */
+    top: 0;           /* Aligns the nav bar to the top of the viewport */
+    left: 0;          /* Aligns the nav bar to the left of the viewport */
+    width: 100%;      /* Ensures the nav bar extends across the full width of the viewport */
+    z-index: 1000;    /* Ensures the nav bar stays on top of other content */
 }
 
 nav i{
@@ -36,11 +44,32 @@ nav i{
 
 .nav-right {
     justify-content: flex-end; /* aligns the quote button to the right */
+    padding-right: 20px;
+}
+
+.nav-left {
+    padding-left: 20px;
 }
 
 nav img { /* logo */
     height: 60px; /* adjust as needed */
-    display: block; 
+    display: block;
+    transition: all 0.3s ease-in-out; 
+}
+
+/* animation after scrolling */
+nav.sticky nav {
+    padding: 5px
+}
+nav.sticky img{
+    height: 50px;
+}
+nav.sticky .link {
+    font-size: 12px;
+}
+
+nav.sticky .quote-button {
+    font-size: 9px;
 }
 
 nav .link {
@@ -54,6 +83,7 @@ nav .link {
     overflow: hidden; 
     display: inline-block; /* Makes sure the underline fits exactly the size of the text */
     font-family: "Lato", sans-serif;
+    transition: all 0.3s ease-in-out; 
 }
 
 nav .link::after {
@@ -82,6 +112,7 @@ nav .link:hover::after {
     font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
     font-family: "Lato", sans-serif;
+    transition: all 0.3s ease-in-out; 
 }
 
 .quote-button:hover {
@@ -107,7 +138,7 @@ nav .link:hover::after {
     top: 30px; 
     left: 17%; /* Start from the center. 17.5% default */
     width: 100%; 
-    max-width: 400px;
+    max-width: 300px;
 }
 
 
@@ -501,6 +532,7 @@ h3 { /* Category Title */
 
 /* -------- FADING ANIMATIONS ----------- */
 /* Initial hidden state */
+
 .text-content, .about-header, .list-container, .services-header,
 .choose-header, .choose-col, .reviews .container, .contact {
     opacity: 0;
@@ -516,12 +548,13 @@ h3 { /* Category Title */
 }
 
 /* State when the element is in the viewport */
-/* MAIN TRANSITION */
+/* MAIN text TRANSITION */
 .show {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* about us transition */
 .about-header.show {
     opacity: 1;
     transform: translateY(0);
@@ -600,18 +633,20 @@ h3 { /* Category Title */
 
 @media(max-width: 860px) {
 
-    /* navigation bar on mobile */
+    /* ----- navigation bar ------ */
 
     .nav-center {
         display: block;
-        position: absolute;
-        background: #f44336;
-        height: 79.5vh;
+        position: fixed;
+        height: 50vh;
         width: 180px;
         top: 0;
         right: -200px;
-        text-align: left;
+        background-color: #253242;
+        backdrop-filter: blur(10px);
+        box-shadow: -10px 0 10px rgba(0,0,0,0.1);
         z-index: 2;
+        text-align: left;
         transition: 1s;
     }
     
@@ -628,9 +663,10 @@ h3 { /* Category Title */
         padding: 30px;
     }
 
-    /* main menu text */
+    /* ---- main menu text ----- */
     
     .text {
+        background-image: url('images/mobilebanner.jpg');
         background-size: cover;
 
     }
@@ -642,13 +678,50 @@ h3 { /* Category Title */
         flex-direction: column;
     }
 
-    /* services */
+    /* main menu transition */
+    .about-header.show, .list-container.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0s; 
+    }
+
+    /* -----services------ */
+
+    .services-button {
+        font-size: 15px;
+    }
+
+    /* change our manufacturing services */
+    .services h1 {
+        font-size: 30px;  /* Reduce the font size for better fit */
+    }
+
+    /* change background on mobile */
+    .services {
+        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/drill.webp'); /* Mobile-optimized image */
+        background-attachment: scroll;  /* Makes the background scroll with the page, which might help in reducing the zoomed effect */
+        background-repeat: no-repeat;
+        background-size: cover;  /* Can try 'contain' to see if it gives a better result, though it might leave some empty space */
+    }
 
     .services .row {
         grid-template-columns: repeat(1, 1fr); /* Create two columns with equal width */
     }
 
-    /* why choose us */
+    /* services animation */
+    .services .service.show {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+        transition-delay: 0s;
+    }
+
+    .services .service:hover {
+        transform: scale(1.05);
+        transition-delay: 0s; 
+    }
+
+    /* ----- why choose us ----- */
 
     .choose p {
         max-width: 100%;
@@ -682,8 +755,16 @@ h3 { /* Category Title */
         text-align: center;
     }
 
+    /* choose us transition */
 
-    /* CONTACT */
+    .choose .choose-col.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.5s; 
+    }
+
+
+    /* ---- CONTACT ------ */
 
     .contact h1{
         font-size: 20px;
@@ -711,27 +792,6 @@ h3 { /* Category Title */
     .services .row {
         grid-template-columns: repeat(2, 1fr); /* Create three columns with equal width */
     }
-
-
-    .services .service:nth-child(3), .services .service:nth-child(4)  {
-        transition-delay: 200ms;
-    }
-
-    .services .service:nth-child(5), .services .service:nth-child(6) {
-        transition-delay: 400ms;
-    }
-
-    .services .service:nth-child(7), .services .service:nth-child(8) {
-        transition-delay: 600ms;
-    }
-
-    .services .service:hover {
-        background: #5D9AD9;
-        color: #FFFFFF;
-        transform: scale (1.05);
-        transition-delay: 0s; /* Reset delay for immediate response on hover */
-    }
-
     
 }
 
