@@ -9,10 +9,10 @@ body {
     /* background-image: linear-gradient(to top, #6e8094, #9baec1); */
 }
 
- /* Temporarily add borders to all elements */
- /*
+/* Temporarily add borders to all elements */
+/* 
 * {
-    border: 1px solid black;
+    border: 1px solid white;
 } */
 
 nav {
@@ -59,7 +59,7 @@ nav img { /* logo */
 
 /* animation after scrolling */
 nav.sticky nav {
-    padding: 5px
+    padding: 0px;
 }
 nav.sticky img{
     height: 50px;
@@ -69,7 +69,7 @@ nav.sticky .link {
 }
 
 nav.sticky .quote-button {
-    font-size: 9px;
+    padding: 8px 18px;
 }
 
 nav .link {
@@ -279,7 +279,7 @@ nav .link:hover::after {
 /* --------------SERVICES------------------ */
 
 .services {
-    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(images/reverse2.jpeg);
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(images/reverse.jpeg);
     background-size: cover;
     background-position: center;
     color: #efefef;
@@ -346,6 +346,7 @@ nav .link:hover::after {
 
 /* --------------Choose Us------------- */
 .choose {
+    background-color: #edf7ff;
     width: 80%;
     margin: auto;
     text-align: center;
@@ -498,9 +499,9 @@ h3 { /* Category Title */
 
 
 .contact-container {
-    margin: 100px auto;
+    margin: 100px auto; /* change for gap on top and bottom */
     width: 80%;
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/mold2.webp);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/mold.webp);
     background-position: center;
     background-size: cover;
     border-radius: 30px; /* rounded corners */
@@ -529,12 +530,131 @@ h3 { /* Category Title */
     cursor: pointer;
 }
 
+/* ------ FOOTER -------  */
+footer {
+    width: 100%;
+    bottom: 0;
+    background-color: #253242;
+    color: white;
+    padding: 50px 0 30px;
+    font-size: 13px;
+    line-height: 20px;
+    font-family: 'poopins', sans-serif;
+    box-sizing: border-box
+}
+
+footer .logo {
+    width: 200px; /* width of text */
+    margin-bottom: 0px; /* space between logo and text */
+}
+
+footer .row {
+    width: 85%; /* spaces between all the columns */
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+footer .col {
+    flex-basis: 10%;
+    padding: 0px; /* invisble padding around each column, default is 4 */ 
+}
+
+footer .col h3 {
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+footer .office-bottom {
+    width: fit-content;
+    margin-bottom: 20px 0;
+}
+
+footer .email-id {
+    border-bottom: 1px solid #ccc;
+}
+
+footer ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+/* space between office from solid-canada */
+footer .col h3 + p, 
+footer .col h3 + p + p, 
+footer .col h3 + p + p + p {
+    line-height: 15px;
+    margin-bottom: 5px;
+}
+
+footer ul li {
+    list-style: none;
+    line-height: 10px;
+    margin-bottom: 12px; /* gap between texts below */
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer form {
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+footer .col i {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+footer .col i2 {
+    font-size: 20px;
+    color: white;
+}
+
+form .send {
+    font-size: 2px;
+}
+
+footer form .input {
+    width: 100%;
+    background: transparent;
+    color: #ccc;
+    border: 0;
+    outline: none;
+}
+
+form button {
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid white;
+    margin: 20px auto;
+}
+
+.copyright {
+    text-align: center;
+}
 
 /* -------- FADING ANIMATIONS ----------- */
 /* Initial hidden state */
 
 .text-content, .about-header, .list-container, .services-header,
-.choose-header, .choose-col, .reviews .container, .contact {
+.choose-header, .choose-col, .reviews .container, .contact, .hero-btn {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-out, transform 1s ease-out;
@@ -631,6 +751,12 @@ h3 { /* Category Title */
     transition-delay: 0s; 
 }
 
+.hero-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1s; 
+}
+
 @media(max-width: 860px) {
 
     /* ----- navigation bar ------ */
@@ -661,6 +787,10 @@ h3 { /* Category Title */
 
     nav .nav-link {
         padding: 30px;
+    }
+
+    nav.sticky .link {
+        font-size: 13px;
     }
 
     /* ---- main menu text ----- */
@@ -775,9 +905,23 @@ h3 { /* Category Title */
 
     .contact-container {
         margin: 0px auto;
+        padding-bottom: 100px;
         width: 100%;
         border-radius: 0;
     }
+
+    /* ---- footer ---- */
+    
+    /* makes the text below the logo */
+    footer .col img {
+        display: block; 
+        margin-bottom: 10px; 
+    }
+    footer .col pmain {
+        display: block;
+        width: 100%;
+    }
+
     /* disable transitions on mobile
     .text-content, .about-header, .list-container, .services-header,
     .choose-header, .choose-col, .reviews .container, .contact {
@@ -785,7 +929,6 @@ h3 { /* Category Title */
     } */
 
 }
-
 @media (min-width: 700px) and (max-width: 1199px) {
     
     /* SERVICES */
@@ -793,10 +936,4 @@ h3 { /* Category Title */
         grid-template-columns: repeat(2, 1fr); /* Create three columns with equal width */
     }
     
-}
-
-@media(prefers-reduced-motion) {
-    .hidden {
-        transition: none;
-    }
 }
