@@ -24,7 +24,7 @@ const observer = new IntersectionObserver((entries)=> {
     })
 }); 
 
-const hiddenElements = document.querySelectorAll('.text-content, .about-header, .list-container, .services-header, .services .service, .choose-header, .choose-col, .reviews .container, .contact');
+const hiddenElements = document.querySelectorAll('.text-content, .about-header, .list-container, .services-header, .services .service, .choose-header, .choose-col, .reviews .container, .contact, .hero-btn');
 hiddenElements.forEach((el)=> observer.observe(el));
 
 /* swipers */
