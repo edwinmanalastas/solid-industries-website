@@ -501,7 +501,7 @@ h3 { /* Category Title */
 .contact-container {
     margin: 100px auto; /* change for gap on top and bottom */
     width: 80%;
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/mold.webp);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/drill.jpeg);
     background-position: center;
     background-size: cover;
     border-radius: 30px; /* rounded corners */
@@ -828,7 +828,7 @@ hr {
 
     /* change background on mobile */
     .services {
-        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/drill.webp'); /* Mobile-optimized image */
+        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/drill.jpeg'); /* Mobile-optimized image */
         background-attachment: scroll;  /* Makes the background scroll with the page, which might help in reducing the zoomed effect */
         background-repeat: no-repeat;
         background-size: cover;  /* Can try 'contain' to see if it gives a better result, though it might leave some empty space */
