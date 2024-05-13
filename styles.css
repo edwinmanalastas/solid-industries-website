@@ -883,6 +883,7 @@ hr {
     .about-column ul {
         margin: 0 auto;
         text-align: center;
+        font-size: 13px;
     }
 
     /* choose us transition */
