@@ -279,7 +279,7 @@ nav .link:hover::after {
 /* --------------SERVICES------------------ */
 
 .services {
-    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(images/reverse.jpeg);
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(images/cnc.webp);
     background-size: cover;
     background-position: center;
     color: #efefef;
@@ -828,7 +828,7 @@ hr {
 
     /* change background on mobile */
     .services {
-        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/drill.jpeg'); /* Mobile-optimized image */
+        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/cnc.webp'); /* Mobile-optimized image */
         background-attachment: scroll;  /* Makes the background scroll with the page, which might help in reducing the zoomed effect */
         background-repeat: no-repeat;
         background-size: cover;  /* Can try 'contain' to see if it gives a better result, though it might leave some empty space */
