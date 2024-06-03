@@ -24,7 +24,7 @@
             <div class="nav-center" id = "navLinks">
                 <i class="material-symbols-outlined" onclick = "hideMenu()">close</i>
                     <a href="" class="link">Home</a>
-                    <a href="" class="link">Services</a>
+                    <a href="#services" class="link" id="navServicesLink">Services</a>
                     <a href="" class="link">Capabilities</a>
                     <a href="" class="link">Gallery</a>
                     <a href="" class="link">Contact</a>
@@ -39,13 +39,14 @@
 
 <!-- MAIN MENU TEXT-->
 <section class="text">
+    <video src = "images/showcase3.mov" muted loop autoplay></video>
     <div class="text-content"> <!-- Container for the text overlay -->
         <h1>WELCOME TO</h1>
         <h12>Solid Industries</h12>
-        <!-- <h13>& Machine Shop Ltd.</h13> -->
+        <h13>& Machine Shop Ltd.</h13>
         <h2>Your partner in precision machining excellence</h2>
-        <p>With over 30 years of operation, Solid Industries specializes in precision machining for the oil and gas sector. Our skilled team uses advanced technology to deliver high-quality, accurate parts with quick turnaround times, establishing us as leaders in the industry.</p>
-        <button class="services-button">Our Services</button>
+        <!-- <p>With over 30 years of operation, Solid Industries specializes in precision machining for the oil and gas sector. Our skilled team uses advanced technology to deliver high-quality, accurate parts with quick turnaround times, establishing us as leaders in the industry.</p> -->
+        <button id="scrollToServices" class="services-button">Our Services</button>
     </div>
 </section> 
 
@@ -91,7 +92,7 @@
 </section>
 
 <!-- SERVICES -->
-<section class = "services">
+<section id="services" class = "services">
     <div class = "container">
         <div class = services-header>
             <h1>Our Manufacturing Services</h1>
@@ -249,6 +250,7 @@
         <a href="" class="hero-btn">CONTACT US</a>
     </div>
 </section>
+
 <footer>
     <div class = "row">
         <div class = "col">
