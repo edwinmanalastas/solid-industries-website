@@ -881,13 +881,12 @@ hr {
     }
 
     /* ---- main menu text ----- */
-    /* 
     .text {
         background-image: url('images/mobilebanner.jpg');
         background-size: cover;
 
     }
-     */
+    
     
     .text h1 {
         font-size: 15;
