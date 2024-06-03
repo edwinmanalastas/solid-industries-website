@@ -46,3 +46,30 @@ const swiper = new Swiper('.js-reviews-slider', {
         }
     }
 });
+
+// Services in Nav Bar
+document.getElementById('navServicesLink').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default anchor click behavior
+    const servicesSection = document.getElementById('services');
+    const navHeight = document.querySelector('nav').offsetHeight; // Get the height of the nav bar
+    const offsetTop = servicesSection.getBoundingClientRect().top + window.scrollY - navHeight + 10; // Adjust the scroll position to account for the nav bar height and additional padding
+
+    window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+    });
+});
+
+// Our Services Button
+document.getElementById('scrollToServices').addEventListener('click', function() {
+    const servicesSection = document.getElementById('services');
+    const navHeight = document.querySelector('nav').offsetHeight; // Get the height of the nav bar
+    const offsetTop = servicesSection.getBoundingClientRect().top + window.scrollY - navHeight + 5; // Adjust the scroll position to account for the nav bar height and additional padding
+
+    window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+    });
+});
+
+
