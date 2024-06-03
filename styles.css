@@ -896,7 +896,6 @@ hr {
     /* ---- main menu text ----- */
     
     .text {
-        background-image: url('images/mobshowcase.mov');
         background-size: cover;
         background-position: center;
     }
