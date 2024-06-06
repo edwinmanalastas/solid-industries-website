@@ -1056,10 +1056,14 @@ hr {
         width: 100%;
     }
 
-    /* contact us page */
+    /* contact.html */
     .contact-page .contact-details {
         text-align: center;
     }
+
+    .contact-page .contact-info hr {
+        margin: auto;
+    }   
 
     /* disable transitions on mobile
     .text-content, .about-header, .list-container, .services-header,
