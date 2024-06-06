@@ -52,7 +52,7 @@ document.getElementById('navServicesLink').addEventListener('click', function(ev
     event.preventDefault(); // Prevent the default anchor click behavior
     const servicesSection = document.getElementById('services');
     const navHeight = document.querySelector('nav').offsetHeight; // Get the height of the nav bar
-    const offsetTop = servicesSection.getBoundingClientRect().top + window.scrollY - navHeight + 10; // Adjust the scroll position to account for the nav bar height and additional padding
+    const offsetTop = servicesSection.getBoundingClientRect().top + window.scrollY - navHeight + 5; // Adjust the scroll position to account for the nav bar height and additional padding
 
     window.scrollTo({
         top: offsetTop,
@@ -72,4 +72,21 @@ document.getElementById('scrollToServices').addEventListener('click', function()
     });
 });
 
+// Function to scroll to services section
+function scrollToServices() {
+    const servicesSection = document.getElementById('services');
+    const navHeight = document.querySelector('nav').offsetHeight; // Get the height of the nav bar
+    const offsetTop = servicesSection.getBoundingClientRect().top + window.scrollY - navHeight + 5; // Adjust the scroll position to account for the nav bar height and additional padding
 
+    window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+    });
+}
+
+// Check if URL contains #services and scroll to services section
+window.addEventListener('load', function() {
+    if (window.location.hash === '#services') {
+        scrollToServices();
+    }
+});
