@@ -885,7 +885,7 @@ hr {
 /* capabilities.html */
 .capabilities-bg {
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
-    url(images/contactbg.webp);
+    url(images/capabilities.jpeg);
     background-size: cover;
     position: relative;
     height: 260px;
@@ -899,7 +899,7 @@ hr {
 
 .capabilities-bg h1 {
     color: white;
-    font-size: 48px;
+    font-size: 38px;
     text-align: center;
 }
 
