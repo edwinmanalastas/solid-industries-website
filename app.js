@@ -90,3 +90,14 @@ window.addEventListener('load', function() {
         scrollToServices();
     }
 });
+
+// makes sure the video is played
+document.addEventListener('DOMContentLoaded', function() {
+    var video = document.getElementById('background-video');
+    video.muted = true;
+    video.play().catch(function(error) {
+        // Auto-play was prevented
+        console.log("Autoplay prevented");
+        // Optionally, handle the error
+    });
+});
