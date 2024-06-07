@@ -885,7 +885,7 @@ hr {
 /* capabilities.html */
 .capabilities-bg {
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
-    url(images/capabilities.jpeg);
+    url(images/capabilitiesbg.jpeg);
     background-size: cover;
     position: relative;
     height: 260px;
@@ -1039,6 +1039,27 @@ hr {
     50% {
         overflow: hidden;
     }
+}
+
+/* gallery.html */
+.gallery-bg {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
+    url(images/gallerybg.jpeg);
+    background-size: cover;
+    position: relative;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Make sure it spans the entire viewport width */
+    margin-left: calc(50% - 50vw); /* Center the background */
+    margin-right: calc(50% - 50vw); /* Center the background */
+}
+
+.gallery-bg h1 {
+    color: white;
+    font-size: 38px;
+    text-align: center;
 }
 
 @media(max-width: 860px) { /* 860 to 892 for capabiltiies */
