@@ -1110,7 +1110,7 @@ hr {
 
 .milling .milling-container, .tuning .tuning-container,
 .cmm .cmm-container, .other .other-container {
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 1.5rem;
     row-gap: 4rem;
     place-items: center;
