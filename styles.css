@@ -135,6 +135,7 @@ nav .link:hover::after {
     overflow: hidden;
 }
 
+
 .text video {
     background-color: black;
     position: absolute;
@@ -913,8 +914,8 @@ hr {
 .capabilities .card-container {
     display: grid;
     row-gap: 3.5rem; /* gap between each item */
-    grid-template-columns: repeat(3,1fr);
-    column-gap: 1.5rem;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 5rem;
 }
 
 .capabilities .card-article {
@@ -950,7 +951,6 @@ hr {
     display: block;
     font-size: .813rem; /*small font size*/
     margin-bottom: .25rem;
-
 }
 
 .capabilities .card-title {
@@ -1042,6 +1042,7 @@ hr {
 }
 
 /* gallery.html */
+
 .gallery-bg {
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
     url(images/gallerybg.jpeg);
@@ -1060,6 +1061,107 @@ hr {
     color: white;
     font-size: 38px;
     text-align: center;
+}
+
+/* milling.html, tuning.html */
+
+.milling-bg, .tuning-bg, .cmm-bg, .other-bg {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
+    url(images/capabilitiesbg.jpeg);
+    background-size: cover;
+    position: relative;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Make sure it spans the entire viewport width */
+    margin-left: calc(50% - 50vw); /* Center the background */
+    margin-right: calc(50% - 50vw); /* Center the background */
+}
+
+.milling-bg h1, .tuning-bg h1, .cmm-bg h1, .other-bg h1 {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+}
+
+.back-arrow {
+    padding-top: 20px;
+    text-align: center;
+    margin-top: 20px; /* Add some space from the background */
+}
+
+.back-arrow a {
+    text-decoration: none;
+    color: #233e59; 
+    font-size: 20px; /* Adjust the size as needed */
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #233e59; /* border */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-arrow a:hover {
+    background-color: #233e59;
+    color: #fff;
+}
+
+
+.milling .milling-container, .tuning .tuning-container,
+.cmm .cmm-container, .other .other-container {
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5rem;
+    row-gap: 4rem;
+    place-items: center;
+    padding-block: 5rem;
+    display: grid; 
+    max-width: 1500px; /* gap between each card */
+    margin: 0 auto; /* centers the cards */
+}
+
+.milling .card, .tuning .card,
+.cmm .card, .other .card {
+    position: relative;
+
+    max-width: 300px; /* width of back textbox */
+    height: 350px; /* 420px - height of back text bok*/
+    background: #fff;
+    margin: 30px auto; /* 30px 10px */
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    transition: 0.3s ease-in-out;
+}
+
+.milling .card .imgBx, .tuning .card .imgBx,
+.cmm .card .imgBx, .other .card .imgBx {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    top: -60px;
+    left: 20px;
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.milling .card .imgBx img, .tuning .card .imgBx img,
+.cmm .card .imgBx img, .other .card .imgBx img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.milling .card .content, .tuning .card .content,
+.cmm .card .content, .other .card .content {
+    position: relative;
+    margin-top: -40px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s ease-in-out;
 }
 
 @media(max-width: 860px) { /* 860 to 892 for capabiltiies */
@@ -1270,6 +1372,12 @@ hr {
         height: auto;
     }
 
+    /* milling.html, tuning.html */
+
+    .milling .milling-container, .tuning .tuning-container, .cmm .cmm-container {
+        grid-template-columns: repeat(1,1fr);
+    }
+
 }
 @media (min-width: 860px) and (max-width: 1256px) { /* 700 to 860px for capabilites */
     
@@ -1287,4 +1395,10 @@ hr {
         grid-template-columns: repeat(2, 1fr);
         column-gap: 1.5rem; /* gap between columns */
     }
+
+        /* milling.html, tuning.html */
+
+        .milling .milling-container, .tuning .tuning-container {
+            grid-template-columns: repeat(2,1fr);
+        }
 }
