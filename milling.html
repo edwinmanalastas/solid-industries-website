@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solid Industries</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script defer src = "app.js"></script>
+</head>
+<body>
+
+<section class = header>
+    <nav>
+        <div class="nav-left">
+            <a href="index.html"><img src = "images/logot.png"></a>
+        </div>
+        <div class = "nav-links">
+            <div class="nav-center" id = "navLinks">
+                <i class="material-symbols-outlined" onclick = "hideMenu()">close</i>
+                    <a href="index.html" class="link">Home</a>
+                    <a href="index.html#services" class="link">Services</a>
+                    <a href="capabilities.html" class="link">Capabilities</a>
+                    <a href="gallery.html" class="link">Gallery</a>
+                    <a href="contact.html" class="link">Contact</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="quote-button">Get a Quote</button>
+        </div>
+        <i class="material-symbols-outlined" onclick = "showMenu()">menu</i>
+    </nav>
+</section> 
+
+<section class="milling">
+    <div class="milling-bg">
+        <h1>Milling Capabilities</h1>
+    </div>
+    <div class="back-arrow">
+        <a href="capabilities.html">&larr; Back</a>
+    </div>
+    <div class="milling-container">
+        <div class = 'card'>
+            <div class = "imgBx">
+                <img src="images/milling/VFOE.webp">
+            </div>
+            <div class = "content">
+                <h2>HAAS VF-0E</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Cumque necessitatibus temporibus velit culpa.
+                </p>
+            </div>
+        </div>
+        <div class = 'card'>
+            <div class = "imgBx">
+                <img src="images/milling/VF2.webp">
+            </div>
+            <div class = "content">
+                <h2>HAAS VF2 20HP</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Cumque necessitatibus temporibus velit culpa.
+                </p>
+            </div>
+        </div>
+        <div class = 'card'>
+            <div class = "imgBx">
+                <img src="images/milling/VF3.webp">
+            </div>
+            <div class = "content">
+                <h2>HAAS VF3 30HP</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Cumque necessitatibus temporibus velit culpa.
+                </p>
+            </div>
+        </div>
+        <div class = 'card'>
+            <div class = "imgBx">
+                <img src="images/milling/VF5.webp">
+            </div>
+            <div class = "content">
+                <h2>HAAS VF5 XT</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Cumque necessitatibus temporibus velit culpa.
+                </p>
+            </div>
+        </div>
+        <div class = 'card'>
+            <div class = "imgBx">
+                <img src="images/milling/LITZ.jpeg">
+            </div>
+            <div class = "content">
+                <h2>LITZ MV-1400A</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Cumque necessitatibus temporibus velit culpa.
+                </p>
+            </div>
+        </div>
+        <div class = 'card'>
+            <div class = "imgBx">
+                <img src="images/milling/DNM.png">
+            </div>
+            <div class = "content">
+                <h2>Doosan DNM 400</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Cumque necessitatibus temporibus velit culpa.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class = "row">
+        <div class = "col">
+            <img src="images/solid.png" class="logo">
+            <pmain>Established in 1990, Solid Industries stands at the forefront of precision machining. From our Calgary base, we innovate and deliver with a commitment to quality and customer satisfaction. Connect with us for unparalleled machining solutions tailored to your needs.</pmain>
+        </div>
+        <div class = "col">
+            <h3>Office</h3>
+            <p><strong>Solid Industries & Machine Shop Ltd.</strong></p>
+            <p>4710 80th Avenue SE</p>
+            <p>Calgary, AB T2C 2Z1</p>
+            <p>Canada</p>
+            <div class = "office-bottom">
+                <h4>(403) 236-3743</h4>
+                <p class = "email-id">solid@solidindustries.net</p>
+            </div>
+        </div>
+        <div class = "col">
+            <h3>Hours</h3>
+            <p><strong>Monday to Friday: </strong>6:00am to 4:30pm</p>
+            <p><strong>Saturday & Sunday: </strong> Closed</p>
+        </div>
+        <div class = "col">
+            <h3>Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services" class="link">Services</a>
+                <li><a href="capabilities.html">Capabilities</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class = "col">
+            <h3>Newsletter</h3>
+            <form>
+                <i class="material-symbols-outlined">mail</i>                    
+                <input type="email" placeholder="Email Address" required>
+                <button type = "submit"><i2 class="material-symbols-outlined">arrow_forward</i2></button>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <p class = "copyright">Solid Industries and Machine Shop Ltd. © 2024 - All Rights Reserved</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>
