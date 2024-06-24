@@ -1107,6 +1107,9 @@ hr {
     color: #fff;
 }
 
+.milling p, .tuning p, .cmm p, .other p {
+    text-align: left;
+}
 
 .milling .milling-container, .tuning .tuning-container {
     grid-template-columns: repeat(3,1fr);
@@ -1133,9 +1136,8 @@ hr {
 .milling .card, .tuning .card,
 .cmm .card, .other .card {
     position: relative;
-
-    max-width: 300px; /* width of back textbox */
-    height: 350px; /* 420px - height of back text bok*/
+    width: 300px; /* width of back textbox */
+    height: 350px; /* 420px - height of back textbox*/
     background: #fff;
     margin: 30px auto; /* 30px 10px */
     padding: 20px 15px;
@@ -1165,7 +1167,7 @@ hr {
 .milling .card .content, .tuning .card .content,
 .cmm .card .content, .other .card .content {
     position: relative;
-    margin-top: -40px;
+    margin-top: -40px; /* margin for image */
     padding: 10px 15px;
     text-align: center;
     color: #111;
@@ -1173,6 +1175,29 @@ hr {
     opacity: 1;
     transition: 0.3s ease-in-out;
 }
+
+.milling .card:hover {
+    height: 500px;
+}
+
+.tuning .card:hover, .cmm .card:hover {
+    height: 400px;
+}
+
+.milling table, .tuning table, .cmm table {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+    margin: 0 auto;
+}
+
+.milling .card:hover table, .tuning .card:hover table,
+.cmm .card:hover table {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+
 
 @media(max-width: 860px) { /* 860 to 892 for capabiltiies */
 
