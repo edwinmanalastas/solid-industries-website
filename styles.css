@@ -1135,7 +1135,7 @@ hr {
     margin: 0;  /* Ensure no margin interferes with the border */
 }
 
-video {
+.gallery-container video {
     width: 100%;
     height: auto;
     display: block;
