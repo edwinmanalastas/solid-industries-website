@@ -1,126 +1,1671 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solid Industries</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <script defer src = "app.js"></script>
-</head>
-<body>
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Avenir', sans-serif;
+    color: #222b45;
+    background-color: #edf7ff;
+    font-family: "Lato", sans-serif;
+    padding-top: 70px;
+    /* background-image: linear-gradient(to top, #6e8094, #9baec1); */
+}
 
-<section class = header>
-    <nav>
-        <div class="nav-left">
-            <a href="index.html"><img src = "images/logot.png"></a>
-        </div>
-        <div class = "nav-links">
-            <div class="nav-center" id = "navLinks">
-                <i class="material-symbols-outlined" onclick = "hideMenu()">close</i>
-                    <a href="index.html" class="link">Home</a>
-                    <a href="index.html#services" class="link">Services</a>
-                    <a href="capabilities.html" class="link">Capabilities</a>
-                    <a href="gallery.html" class="link">Gallery</a>
-                    <a href="contact.html" class="link">Contact</a>
-            </div>
-        </div>
-        <div class="nav-right">
-            <button class="quote-button" onclick="window.location.href='quote.html'">Get a Quote</button>
-        </div>
-        <i class="material-symbols-outlined" onclick = "showMenu()">menu</i>
-    </nav>
-</section>
+/* Temporarily add borders to all elements */
+ 
+/*
+* {
+    border: 1px solid white;
+} */
 
-<!-- GALLERY PAGE -->
-<section class="gallery">
-    <div class="gallery-bg">
-        <h1>Photo Gallery</h1>
-    </div>
-    <div class="video-button">
-        <a href="videos.html">View Videos</a>
-    </div>
-    <div class="gallery-container" id="gallery-container">
-        <!-- Images will be dynamically inserted here by JavaScript -->
-    </div>
-</section>
+nav {
+    background-color: #253242;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    position: fixed;  /* Makes the nav bar fixed at the top */
+    top: 0;           /* Aligns the nav bar to the top of the viewport */
+    left: 0;          /* Aligns the nav bar to the left of the viewport */
+    width: 100%;      /* Ensures the nav bar extends across the full width of the viewport */
+    z-index: 1000;    /* Ensures the nav bar stays on top of other content */
+}
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const galleryContainer = document.getElementById('gallery-container');
+nav i{
+    display: none !important;
+}
 
-    // Create 5 columns
-    for (let i = 0; i < 5; i++) {
-        const column = document.createElement('div');
-        column.classList.add('column');
-        galleryContainer.appendChild(column);
+.nav-left, .nav-center, .nav-right {
+    flex: 1; /* equal distribution */
+    display: flex;
+    align-items: center; /* vertical alignment */
+}
+
+.nav-center {
+    justify-content: center; /* center the links horizontally */
+}
+
+.nav-right {
+    justify-content: flex-end; /* aligns the quote button to the right */
+    padding-right: 20px;
+}
+
+.nav-left {
+    padding-left: 20px;
+}
+
+nav img { /* logo */
+    height: 60px; /* adjust as needed */
+    display: block;
+    transition: all 0.3s ease-in-out; 
+}
+
+/* animation after scrolling */
+nav.sticky nav {
+    padding: 0px;
+}
+nav.sticky img{
+    height: 50px;
+}
+nav.sticky .link {
+    font-size: 12px;
+}
+
+nav.sticky .quote-button {
+    padding: 8px 18px;
+}
+
+nav .link {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: small;
+    margin: 22px 20px;
+    font-weight: 600;
+    position: relative; 
+    overflow: hidden; 
+    display: inline-block; /* Makes sure the underline fits exactly the size of the text */
+    font-family: "Lato", sans-serif;
+    transition: all 0.3s ease-in-out; 
+}
+
+nav .link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%; /* Start with no underline visible */
+    height: 2px; /* Thickness of the underline */
+    background-color: #5D9AD9; /* Color of the underline */
+    transition: width 0.3s ease; /* Animates the width */
+}
+
+nav .link:hover::after {
+    width: 100%; /* Full width on hover */
+}
+
+.quote-button {
+    background-color: #EEF8FF;
+    color: #5D9AD9;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+    font-family: "Lato", sans-serif;
+    transition: all 0.3s ease-in-out; 
+}
+
+.quote-button:hover {
+    background-color: #5D9AD9; /* Darker shade on hover */
+    color: #FFFFFF; /* White text on hover */
+}
+
+.text {
+    /* background-image: url('images/banner.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center center; /* Centers the image horizontally and vertically */
+    position: relative; /* Context for absolute positioning */
+    text-align: left;
+    min-height: 70vh;
+    display: flex; 
+    justify-content: center; 
+    padding: 0px; 
+    overflow: hidden;
+}
+
+
+.text video {
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire background */
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Ensure video is behind the text */
+}
+
+
+.text-content {
+    position: absolute; /* Absolute positioning relative to its parent */
+    top: 30px; 
+    left: 17%; /* Start from the center. 17.5% default */
+    width: 100%; 
+    max-width: 600px;
+}
+
+.text h1 { /* "Welcome To" */
+    padding-left: 0; 
+    padding-right: 20px; 
+    margin-bottom: 0px;
+    padding-bottom: 2px;
+    color: #253242; /* #253242 */
+    font-size: 30px; 
+    font-family: "Lato", sans-serif;
+}
+
+.text h12 { /* "Solid Industries " */
+    font-size: 50px;
+    color: #f1f6f9;
+    font-weight: 900;
+    font-family: "Lato", sans-serif;
+}
+
+.text h13 { /* and machine shop */
+    display: block;
+    color: #f1f6f9; /* #f1f6f9 */
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.text h2 { /* Precision Machining Excellence */
+    padding-left: 0; 
+    padding-right: 20px; 
+    font-size: 23.5px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+    max-width: 600px;
+    color: #f1ddcd;
+    font-family: "Lato", sans-serif;
+}
+
+ /* Main Paragraph
+.text p {
+    padding-left: 0; 
+    padding-right: 20px; 
+    color: #f1f6f9; 
+    font-size: 12px;
+    max-width: 245px;
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+}  */
+
+.services-button {
+    background-color: #233e59;
+    color: #e6eaf3;
+    border: none;
+    padding: 10px 25px;
+    font-size: 15px; /* Decrease font size to make the button smaller */
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+}
+
+.services-button:hover {
+    background-color: #e6eaf3; /* Darker shade on hover */
+    color: #233e59; /* White text on hover */
+}
+
+
+/* ------------ABOUT US------------- */
+
+.site-about {  /* Dark blue background */
+    background: linear-gradient(
+        to right,
+        #53677c 0% 10%, /* edge color #141d2a */
+        #66788c 10%, 10.1%,
+        #43596a 10.1%, 12%, /* middle color #43596a */
+        #66788c 12%, 12.1%,
+        #213241 12.1% 88%, /* main color */
+        #66788c 88%, 88.1%,
+        #43596a 88.1%, 90%, /* middle color */ 
+        #66788c 90%, 90.1%, 
+        #53677c 90.1% 90% /* edge color #141d2a */
+        ); 
+    color: white;
+    padding: 20px 0;
+    font-family: 'Avenir', sans-serif;
+}
+
+.about-container { /* WHOLE ABOUT */
+    text-align: left;
+    display: flex;
+    justify-content: space-around; /* Distribute space evenly */
+    align-items: start; /* Align items at the top */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+.about-column h4 { /* TITLES */
+    text-align: left;
+    margin-top: 0px;
+    padding: 10px;
+    font-size: 20px; /* Header size */
+    margin-bottom: 10px; /* Space below the header */
+    color: #f5fafb;
+}
+
+.about-column p { /* ALL TEXTS */
+    font-size: 12px; 
+    line-height: 1.6;
+    max-width: 500px;
+    color: #f1f6f9;
+}
+
+.about-column .list-container {
+    display: flex;  
+    justify-content: space-between; /* Distributes space between the two lists */
+}
+
+.about-column ul {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0; 
+    margin: 0 15px; 
+    width: 60%; /* Assigns equal width to both lists */
+    font-size: 15px;
+}
+
+.about-column li {
+    margin-bottom: 0em; /* Adds some space between the items */
+}
+
+.about-column li:before {
+    content: "\2713"; /* Unicode checkmark character */
+    color: #4f93db;
+    display: inline-block;
+    width: 1em; 
+    margin-left: -1em; 
+}
+/* --------------SERVICES------------------ */
+
+.services {
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(images/cnc.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #efefef;
+    background-attachment: fixed;
+    padding-top: 70px; /* default was 11px */
+    padding-bottom: 70px;
+}
+.services h1 { /* Our Manufacturing Services */
+    text-align: center;
+    color: #efefef;
+    font-size: 36px;
+    padding-bottom: 10px;
+}
+.services h1::after {
+    content: '';
+    background: #efefef;
+    display: block;
+    height: 3px;
+    width: 170px;
+    margin: 20px auto 5px;
+
+}
+
+.services .container {
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+    padding-left: 100px;
+    padding-right: 100px
+
+}
+.services .row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Create four columns with equal width */
+    grid-gap: 30px; /* Adjust the gap between grid items */
+}
+
+.services .service {
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    transition: transform 0.5s, background 0.5s;
+}
+
+.services i { /* icons */
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #5D9AD9;    ;
+    transition: color 1s ease;
+}
+
+.services h2 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.services .service:hover i {
+    color: #FFFFFF;
+}
+
+/* --------------Choose Us------------- */
+.choose {
+    background-color: #edf7ff;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* "Why Choose Us" */
+.choose h1 { /* Title */
+    font-size: 36px;
+    font-weight: 600;
+}
+
+/* Title Setence */
+.choose p {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+h3 { /* Category Title */
+    text-align: center;
+    font-weight: 600;
+    margin: 10 0px;
+}
+
+.choose-col p { /* Parahraph Text */
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 10px;
+    max-width: 600px;
+}
+
+.row { /* Categories */
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.choose-col{
+    flex-basis: 31%; /* adjust border */
+    background: #c8daf3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    
+    /* if you want to add background image in future */
+    /* background-image: url(images/cnc.webp);
+    background-size: cover;
+    background-position: center; /* Center the background image */
+    /* background-repeat: no-repeat; /* Prevent the background from repeating */
+}
+
+.choose-col:hover {
+    box-shadow: 0 0 20px 0px rgba(33, 50, 65, 0.5); 
+}
+
+/* -------- REVIEWS --------- */
+
+.reviews *, .reviews *::before, .reviews *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.reviews .container {
+    max-width: 1170px;
+    margin: 70px auto;
+    /* padding: 0 15px; */
+}
+
+/* reviews-header */
+.reviews .reviews-header {
+    text-align: center;
+    margin-bottom: 50px; /* bottom text space */
+}
+
+/* What our customers say */
+.reviews .reviews-header .title {
+    font-size: 36px;
+    font-weight: 600;
+    text-transform: capitalize;
+    line-height: 1.2;
+}
+
+.reviews {
+    padding: 50px 0px;
+    background: #d3e3f5; /* review background color */
+    background-size: cover;
+    background-position: center;
+}
+
+/* the box itself */
+.reviews-item {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for contrast */
+    padding: 20px; /* thickness of all sides */
+    border-radius:10px; /* rounded corners */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* adds depth */
+}
+
+.reviews-item .info {
+    display: flex;
+    align-items: center;
+}
+
+.reviews-item img {
+    max-width: 40px;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.reviews .text-box h3 {
+    font-size: 15px;
+    display: flex;
+}
+
+.reviews-item .name {
+    font-size: 24px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: hs1(0,0%,0%);
+    line-height: 1.2;
+}
+
+.reviews-item p {
+    margin-top: 20px;
+    color: hsl(0,0%,40%);
+}
+
+.reviews-item .rating {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #fdd562;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #fff; /* Change color if needed */
+    opacity: 1; /* Ensure they are fully opaque */
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #000; /* Active bullet color */
+}
+
+/* ---------CONTACT US-------- */
+
+
+.contact-container {
+    margin: 100px auto; /* change for gap on top and bottom */
+    width: 80%;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/drill.jpeg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px; /* rounded corners */
+    text-align: center;
+    padding: 100px 0;
+}
+
+.contact h1 {
+    color: #efefef;
+    font-size: 35px;
+    margin-bottom: 40px;
+    padding: 0;
+    font-weight: 900;
+}
+
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid white;
+    padding: 12px 45px;
+    font-size: 15px;
+    font-weight: bold;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+/* ------ FOOTER -------  */
+footer {
+    width: 100%;
+    bottom: 0;
+    background-color: #253242;
+    color: white;
+    padding: 50px 0 30px;
+    font-size: 13px;
+    line-height: 20px;
+    font-family: 'poopins', sans-serif;
+    box-sizing: border-box
+}
+
+footer .logo {
+    width: 200px; /* width of text */
+    margin-bottom: 0px; /* space between logo and text */
+}
+
+footer .row {
+    width: 85%; /* spaces between all the columns */
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+footer .col {
+    flex-basis: 10%;
+    padding: 0px; /* invisble padding around each column, default is 4 */ 
+}
+
+footer .col h3 {
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+footer .office-bottom {
+    width: fit-content;
+    margin-bottom: 20px 0;
+}
+
+footer .email-id {
+    border-bottom: 1px solid #ccc;
+}
+
+footer ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+/* space between office from solid-canada */
+footer .col h3 + p, 
+footer .col h3 + p + p, 
+footer .col h3 + p + p + p {
+    line-height: 15px;
+    margin-bottom: 5px;
+}
+
+footer ul li {
+    list-style: none;
+    line-height: 10px;
+    margin-bottom: 12px; /* gap between texts below */
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer form {
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+footer .col i {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+footer .col i2 {
+    font-size: 20px;
+    color: white;
+}
+
+form .send {
+    font-size: 2px;
+}
+
+footer form .input {
+    width: 100%;
+    background: transparent;
+    color: #ccc;
+    border: 0;
+    outline: none;
+}
+
+form button {
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid white;
+    margin: 20px auto;
+}
+
+.copyright {
+    text-align: center;
+}
+
+/* -------- FADING ANIMATIONS ----------- */
+/* Initial hidden state */
+
+.text-content, .about-header, .list-container, .services-header,
+.choose-header, .choose-col, .reviews .container, .contact, .hero-btn {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.services .service {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+/* State when the element is in the viewport */
+/* MAIN text TRANSITION */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* about us transition */
+.about-header.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s; 
+}
+
+.list-container.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1s; 
+}
+
+/* SERVICES TRANSITION */
+
+.services .service.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.services .service:nth-child(2), .services .service:nth-child(6)  {
+    transition-delay: 200ms;
+}
+
+.services .service:nth-child(3), .services .service:nth-child(7) {
+    transition-delay: 400ms;
+}
+
+.services .service:nth-child(4), .services .service:nth-child(8) {
+    transition-delay: 600ms;
+}
+
+.services .service:hover {
+    background: #5D9AD9;
+    color: #FFFFFF;
+    transform: scale (1.05);
+    transition-delay: 0s; /* Reset delay for immediate response on hover */
+}
+
+/* WHY CHOOSE US TRANSITION */
+
+.choose .choose-header.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.choose .choose-col.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s; 
+}
+
+.choose .choose-col:nth-child(2) {
+    transition-delay: 1s;
+}
+
+.choose .choose-col:nth-child(3) {
+    transition-delay: 1.5s;
+}
+
+/* REVIEWS */
+
+.reviews .container.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s; 
+}
+
+/* CONTACT US */
+.contact.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s; 
+}
+
+.hero-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1s; 
+}
+
+
+/* -------- CONTACT.html ----------*/
+
+
+.contact-bg {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
+    url(images/contactbg.webp);
+    background-size: cover;
+    position: relative;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Make sure it spans the entire viewport width */
+    margin-left: calc(50% - 50vw); /* Center the background */
+    margin-right: calc(50% - 50vw); /* Center the background */
+}
+
+.contact-bg h1 {
+    color: white;
+    font-size: 48px;
+    text-align: center;
+}
+
+.contact-page .contact-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-page h1 {
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-page i {
+    color: black;
+}
+
+.contact-page .contact-details {
+    padding: 30px 50px; /* space between image and solid text */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contact-page .contact-info {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+}
+
+.contact-page .contact-info h2 {
+    color: #003366;
+    font-size: 24px;
+}
+
+.contact-page .contact-info p, 
+.contact-page .contact-info a {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.contact-page .contact-info a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+.contact-page .contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-page .contact-info hr {
+    margin: 20px 0;
+    border: 1px solid #ccc;
+}
+
+.contact-page .contact-person {
+    margin-bottom: 20px;
+}
+
+.contact-page .map {
+    flex: 1;
+    min-width: 300px;
+    width: 80%;
+    margin: auto;
+    padding: 80px 0;
+}
+
+.contact-page .map iframe {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc;
+}
+
+.contact-page .map a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.contact-page .map a:hover {
+    text-decoration: underline;
+}
+
+/* capabilities.html */
+.capabilities-bg {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
+    url(images/capabilitiesbg.jpeg);
+    background-size: cover;
+    position: relative;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Make sure it spans the entire viewport width */
+    margin-left: calc(50% - 50vw); /* Center the background */
+    margin-right: calc(50% - 50vw); /* Center the background */
+}
+
+.capabilities-bg h1 {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+}
+
+.capabilities .capabilities-container {
+    display: grid;
+    place-items: center;
+    margin-inline: 1.5rem;
+    padding-block: 5rem;
+}
+
+.capabilities .card-container {
+    display: grid;
+    row-gap: 3.5rem; /* gap between each item */
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 5rem;
+}
+
+.capabilities .card-article {
+    position: relative;
+    overflow: hidden; /* text box with the photo */
+    border-radius: 1.5rem;
+}
+
+.capabilities .card-img {
+    width: 382px;
+    border-radius: 1.5rem;
+}
+
+.capabilities .card-data {
+    width: 280px;
+    background-color: hsl(0, 0%, 100%);
+    padding: 1.5rem 2rem; /* padding around text box */
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+    border-radius: 1rem;
+    position: absolute;
+    bottom: -9rem; /* initially text box is out of photo */
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0; /* hide text box */
+    transition: opacity 1s 1s;
+    text-align: center;
+    padding-top: 0.5rem; /* padding on top of card-title */
+
+}
+
+.capabilities .card-description {
+    display: block;
+    font-size: .813rem; /*small font size*/
+    margin-bottom: .25rem;
+}
+
+.capabilities .card-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #253242;
+    margin-bottom: .75rem;
+    text-align: center;
+}
+
+.capabilities .card-button {
+    text-decoration: none;
+    background-color: #233e59;
+    color: white;
+    border: none;
+    padding: 5px 20px;
+    font-size: 15px; /* Decrease font size to make the button smaller */
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: .813rem;
+    font-weight: 500;
+    font-family: "Lato", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* text-decoration: none;
+    font-size: .813rem;
+    font-weight: 500;
+    color: hsl(82, 60%, 28%); /* first color */
+}
+
+.capabilities .card-button:hover {
+     text-decoration: underline;
+}
+
+/* capabilities naming animation in hover */
+.capabilities .card-article:hover .card-data {
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.capabilities .card-article:hover {
+    animation: remove-overflow 2s forwards;
+}
+
+.capabilities .card-article:not(:hover){
+    animation: show-overflow 2s forwards;
+}
+
+.capabilities .card-article:not(:hover) .card-data{
+    animation: remove-data 1s forwards;
+}
+
+/* capabilities card animation for hover */
+@keyframes show-data {
+    50%{
+        transform: translateY(-10rem);
+    }
+    100% {
+        transform: translateY(-7rem);
+    }
+}
+
+@keyframes remove-overflow {
+    to {
+        overflow: initial; /* make textbox not hidden after animation */
+    }
+}
+
+@keyframes remove-data{ /* smooth transition for unhover */
+    0% {
+        transform: translateY(-7rem);
+    }
+    50% {
+        transform: translateY(-10rem);
+    }
+    100% {
+        transform: translateY(.5rem);
+    }
+}
+
+@keyframes show-overflow {
+    0% {
+       overflow: initial;
+       pointer-events: none; /* fixes glitching in pointer */
+    }
+    50% {
+        overflow: hidden;
+    }
+}
+
+/* gallery.html */
+
+.gallery-bg {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
+    url(images/gallerybg.jpeg);
+    background-size: cover;
+    position: relative;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Make sure it spans the entire viewport width */
+    margin-left: calc(50% - 50vw); /* Center the background */
+    margin-right: calc(50% - 50vw); /* Center the background */
+}
+
+.gallery-bg h1 {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.gallery {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.gallery-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap; /* Ensure the columns wrap */
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1 1 calc(20% - 20px); /* Default: 5 columns, with some space between */
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cnc-photo {
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.cnc-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 5px solid darkgrey; 
+}
+
+.video-button {
+    padding-top: 20px;
+    text-align: center;
+    margin-top: 20px; /* Add some space from the background */
+}
+
+.video-button a {
+    text-decoration: none;
+    color: #233e59; 
+    font-size: 15px; /* video button size */
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #233e59; /* border */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.video-button a:hover {
+    background-color: #233e59;
+    color: #fff;
+}
+
+
+.video-container {
+    overflow: hidden;
+    position: relative;
+    padding: 0; /* Ensure no padding interferes with the border */
+    margin: 0;  /* Ensure no margin interferes with the border */
+}
+
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 5px solid #ccc; /* Add border to all sides */
+    border-radius: 8px; /* Optional: for rounded corners */
+}
+
+/* milling.html, tuning.html */
+
+.milling-bg, .tuning-bg, .cmm-bg, .other-bg {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
+    url(images/capabilitiesbg.jpeg);
+    background-size: cover;
+    position: relative;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Make sure it spans the entire viewport width */
+    margin-left: calc(50% - 50vw); /* Center the background */
+    margin-right: calc(50% - 50vw); /* Center the background */
+}
+
+.milling-bg h1, .tuning-bg h1, .cmm-bg h1, .other-bg h1 {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+}
+
+.back-arrow {
+    padding-top: 20px;
+    text-align: center;
+    margin-top: 20px; /* Add some space from the background */
+}
+
+.back-arrow a {
+    text-decoration: none;
+    color: #233e59; 
+    font-size: 20px; /* Adjust the size as needed */
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #233e59; /* border */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-arrow a:hover {
+    background-color: #233e59;
+    color: #fff;
+}
+
+.milling p, .tuning p, .cmm p, .other p {
+    text-align: left;
+}
+
+.milling .milling-container, .tuning .tuning-container {
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+    row-gap: 4rem;
+    place-items: center;
+    padding-block: 5rem;
+    display: grid; 
+    max-width: 1500px; /* gap between each card */
+    margin: 0 auto; /* centers the cards */
+}
+
+.cmm .cmm-container, .other .other-container {
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5rem;
+    row-gap: 4rem;
+    place-items: center;
+    padding-block: 5rem;
+    display: grid; 
+    max-width: 1000px; /* gap between each card */
+    margin: 0 auto; /* centers the cards */
+}
+
+.milling .card, .tuning .card,
+.cmm .card, .other .card {
+    position: relative;
+    width: 300px; /* width of back textbox */
+    height: 350px; /* 420px - height of back textbox*/
+    background: #fff;
+    margin: 30px auto; /* 30px 10px */
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    transition: 0.3s ease-in-out;
+}
+
+.milling .card .imgBx, .tuning .card .imgBx,
+.cmm .card .imgBx, .other .card .imgBx {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    top: -60px;
+    left: 20px;
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.milling .card .imgBx img, .tuning .card .imgBx img,
+.cmm .card .imgBx img, .other .card .imgBx img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.milling .card .content, .tuning .card .content,
+.cmm .card .content, .other .card .content {
+    position: relative;
+    margin-top: -40px; /* margin for image */
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+}
+
+.milling .card:hover {
+    height: 500px;
+}
+
+.tuning .card:hover, .cmm .card:hover {
+    height: 400px;
+}
+
+.milling table, .tuning table, .cmm table {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+    margin: 0 auto;
+}
+
+.milling .card:hover table, .tuning .card:hover table,
+.cmm .card:hover table {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+
+.quote-bg {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
+    url(images/quote.webp);
+    background-size: cover;
+    position: relative;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Make sure it spans the entire viewport width */
+    margin-left: calc(50% - 50vw); /* Center the background */
+    margin-right: calc(50% - 50vw); /* Center the background */
+}
+
+.quote-bg h1 {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+}
+
+.contact-form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.contact-form-container {
+    width: 80%;
+    max-width: 1200px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.contact-form-container h1 {
+    font-family: 'Schibsted Grotesk', sans-serif;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #000;
+    font-size: 24px;
+}
+
+.contact-form-container form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-form-container .form-left, .contact-form-container .form-right {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-container label {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.contact-form-container input, .contact-form-container textarea {
+    width: 100%;
+    box-sizing: border-box; 
+    padding: 10px; /* padding for text boxes */
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+.contact-form-container .form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-form-container .form-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #233e59;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form-container .form-actions button[type="reset"] {
+    background-color: #aaa;
+}
+
+.contact-form-container .form-actions button:hover {
+    background-color: #182a3f;
+}
+
+.contact-form-container .form-actions button[type="reset"]:hover {
+    background-color: #888;
+}
+
+.contact-form-container .hidden {
+    display: none;
+}
+
+#form-message {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: green;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.required-note {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.required {
+    color: red;
+    margin-left: 5px;
+}
+
+
+@media(max-width: 860px) { /* 860 to 892 for capabiltiies */
+
+    /* ----- navigation bar ------ */
+
+    .nav-center {
+        display: block;
+        position: fixed;
+        height: 50vh;
+        width: 180px;
+        top: 0;
+        right: -200px;
+        background-color: #253242;
+        backdrop-filter: blur(10px);
+        box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+        z-index: 2;
+        text-align: left;
+        transition: 1s;
+    }
+    
+    nav i {
+        font-weight: 900 !important;
+        display: block !important;
+        color: #fff !important;
+        margin: 10px !important;
+        font-size: 22px !important;
+        cursor: pointer !important;
     }
 
-    // Get all columns
-    const columns = document.getElementsByClassName('column');
-
-    // Add images to columns
-    for (let i = 1; i <= 58; i++) {
-        const div = document.createElement('div');
-        div.classList.add('cnc-photo');
-        const img = document.createElement('img');
-        img.src = `images/gallery/${i}.jpeg`;
-        img.alt = `Image ${i}`;
-        div.appendChild(img);
-        columns[Math.floor((i - 1) / 12)].appendChild(div);
+    nav .nav-link {
+        padding: 30px;
     }
-});
-</script>
 
-<footer>
-    <div class = "row">
-        <div class = "col">
-            <img src="images/solid.png" class="logo">
-            <pmain>Established in 1990, Solid Industries stands at the forefront of precision machining. From our Calgary base, we innovate and deliver with a commitment to quality and customer satisfaction. Connect with us for unparalleled machining solutions tailored to your needs.</pmain>
-        </div>
-        <div class = "col">
-            <h3>Office</h3>
-            <p><strong>Solid Industries & Machine Shop Ltd.</strong></p>
-            <p>4710 80th Avenue SE</p>
-            <p>Calgary, AB T2C 2Z1</p>
-            <p>Canada</p>
-            <div class = "office-bottom">
-                <h4>(403) 236-3743</h4>
-                <p class = "email-id">solid@solidindustries.net</p>
-            </div>
-        </div>
-        <div class = "col">
-            <h3>Hours</h3>
-            <p><strong>Monday to Friday: </strong>6:00am to 4:30pm</p>
-            <p><strong>Saturday & Sunday: </strong> Closed</p>
-        </div>
-        <div class = "col">
-            <h3>Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#services" class="link">Services</a>
-                <li><a href="capabilities.html">Capabilities</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div class = "col">
-            <h3>Newsletter</h3>
-            <form>
-                <i class="material-symbols-outlined">mail</i>                    
-                <input type="email" placeholder="Email Address" required>
-                <button type = "submit"><i2 class="material-symbols-outlined">arrow_forward</i2></button>
-            </form>
-        </div>
-    </div>
-    <hr>
-    <p class = "copyright">Solid Industries and Machine Shop Ltd. © 2024 - All Rights Reserved</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-</body>
-</html>
+    nav.sticky .link {
+        font-size: 13px;
+    }
+
+    /* ---- main menu text ----- */
+    
+    .text {
+        background-image: url('images/mobfull.mov');
+        background-size: cover;
+        background-position: center;
+    }
+    .text-content {
+        position: absolute; /* Absolute positioning relative to its parent */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Translate to ensure perfect centering */
+        width: 90%; /* Adjust width for mobile view */
+        max-width: 600px;
+        text-align: center;
+        transition: none; /* Disable any transition */
+
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    /* main menu transition */
+    .about-header.show, .list-container.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0s; 
+    }
+
+    /* -----services------ */
+
+    .services-button {
+        font-size: 15px;
+    }
+
+    /* change our manufacturing services */
+    .services h1 {
+        font-size: 30px;  /* Reduce the font size for better fit */
+    }
+
+    /* change background on mobile */
+    .services {
+        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/cnc.webp'); /* Mobile-optimized image */
+        background-attachment: scroll;  /* Makes the background scroll with the page, which might help in reducing the zoomed effect */
+        background-repeat: no-repeat;
+        background-size: cover;  /* Can try 'contain' to see if it gives a better result, though it might leave some empty space */
+    }
+
+    .services .row {
+        grid-template-columns: repeat(1, 1fr); /* Create two columns with equal width */
+    }
+
+    /* services animation */
+    .services .service.show {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+        transition-delay: 0s;
+    }
+
+    .services .service:hover {
+        transform: scale(1.05);
+        transition-delay: 0s; 
+    }
+
+    /* ----- why choose us ----- */
+
+    .choose p {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .site-about {
+        justify-content: center; 
+        align-items: center;
+        text-align: center; 
+    }
+
+    .about-column { /* about us &  industries we serve*/
+        width: 100%; 
+    }
+    
+    .about-column p {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .about-column h4 {
+        text-align: center; 
+        margin: 0; 
+    }
+    .about-column ul {
+        margin: 0 auto;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    /* choose us transition */
+
+    .choose .choose-col.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.5s; 
+    }
+
+
+    /* ---- CONTACT ------ */
+
+    .contact h1{
+        font-size: 20px;
+    }
+    .hero-btn {
+        font-size: 15px;
+    }
+
+    .contact-container {
+        margin: 0px auto;
+        padding-bottom: 100px;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    /* ---- footer ---- */
+    
+    /* makes the text below the logo */
+    footer .col img {
+        display: block; 
+        margin-bottom: 10px; 
+    }
+    footer .col pmain {
+        display: block;
+        width: 100%;
+    }
+
+    /* contact.html */
+    .contact-page .contact-details {
+        text-align: center;
+    }
+
+    .contact-page .contact-info hr {
+        margin: auto;
+    }   
+
+    /* disable transitions on mobile
+    .text-content, .about-header, .list-container, .services-header,
+    .choose-header, .choose-col, .reviews .container, .contact {
+        transition: none
+    } */
+
+    /* capabilities.html */
+
+    .capabilities .capabilities-container {
+        margin-inline: 1rem;
+    }
+
+    .capabilities .card-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .capabilities .card-article {
+        margin-bottom: 1rem;
+    }
+
+    .capabilities .card-img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* milling.html, tuning.html */
+
+    .milling .milling-container, .tuning .tuning-container,
+    .cmm .cmm-container, .other .other-container {
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .contact-form-container form {
+        flex-direction: column;
+    }
+
+    .contact-form-container .form-left, .contact-form-container .form-right {
+        width: 100%;
+    }
+
+    /* gallery */
+    .column {
+        flex: 1 1 calc(50% - 20px); /* 2 columns */
+    }
+
+    .gallery {
+        padding-left: 50px;
+        padding-right: 50px
+    }
+
+}
+@media (min-width: 860px) and (max-width: 1256px) { /* 700 to 860px for capabilites */
+    
+    /* SERVICES */
+    .services .row {
+        grid-template-columns: repeat(2, 1fr); /* Create three columns with equal width */
+    }
+    
+    .text-content {
+        transition: none; /* Disable any transition */
+    }
+
+    /* CAPABILITIES.HTML */
+    .capabilities .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem; /* gap between columns */
+    }
+
+    /* milling.html, tuning.html */
+
+    .milling .milling-container, .tuning .tuning-container {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    /* gallery */
+    .column {
+        flex: 1 1 calc(33.33% - 20px); /* 3 columns */
+    }
+}
