@@ -1140,7 +1140,6 @@ hr {
     height: auto;
     display: block;
     border: 5px solid #ccc; /* Add border to all sides */
-    border-radius: 8px; /* Optional: for rounded corners */
 }
 
 /* milling.html, tuning.html */
