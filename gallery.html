@@ -40,9 +40,42 @@
 <!-- GALLERY PAGE -->
 <section class="gallery">
     <div class="gallery-bg">
-        <h1>Gallery</h1>
+        <h1>Photo Gallery</h1>
+    </div>
+    <div class="video-button">
+        <a href="videos.html">View Videos</a>
+    </div>
+    <div class="gallery-container" id="gallery-container">
+        <!-- Images will be dynamically inserted here by JavaScript -->
     </div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const galleryContainer = document.getElementById('gallery-container');
+
+    // Create 5 columns
+    for (let i = 0; i < 5; i++) {
+        const column = document.createElement('div');
+        column.classList.add('column');
+        galleryContainer.appendChild(column);
+    }
+
+    // Get all columns
+    const columns = document.getElementsByClassName('column');
+
+    // Add images to columns
+    for (let i = 1; i <= 58; i++) {
+        const div = document.createElement('div');
+        div.classList.add('cnc-photo');
+        const img = document.createElement('img');
+        img.src = `images/gallery/${i}.jpeg`;
+        img.alt = `Image ${i}`;
+        div.appendChild(img);
+        columns[Math.floor((i - 1) / 12)].appendChild(div);
+    }
+});
+</script>
 
 <footer>
     <div class = "row">
