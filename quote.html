@@ -44,11 +44,11 @@
 </section>
 <section class="contact-form-section">
     <div class="contact-form-container">
-        <h1>Fill the form.<br>It's easy.</h1>
-        <p class="required-note">For further information or to request a quote on a part/project, 
-        please complete the form below. We will contact you to discuss the details of your inquiry.</p>
-        <p class="required-note">* indicates a required field</p>
+        <h1>Fill the form. It's easy.</h1>
         <form id="contact-form" action="send-email.php" method="post">
+            <!-- <p class="required-note">For further information or to request a quote on a part/project, 
+                please complete the form below. We will contact you to discuss the details of your inquiry.</p>
+            <p class="required-note">* indicates a required field</p> -->
             <div class="form-left">
                 <label for="full_name">Full Name:<span class="required">*</span></label>
                 <input type="text" id="full_name" name="full_name" placeholder="Full Name" required>
@@ -89,8 +89,8 @@
                     <button type="submit">Submit Form</button>
                 </div>
             </div>
-            <div id="form-message" class="hidden">Your message was sent, thank you!</div>
         </form>
+        <div id="form-message" class="hidden">Your message was sent, thank you!</div>
     </div>
 </section>
 
