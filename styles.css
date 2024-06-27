@@ -111,6 +111,7 @@ nav .link:hover::after {
     text-transform: uppercase;
     border-radius: 30px;
     font-weight: bold;
+    font-size: 14px;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
     font-family: "Lato", sans-serif;
     transition: all 0.3s ease-in-out; 
@@ -1198,6 +1199,133 @@ hr {
     transition-delay: 0.3s;
 }
 
+.quote-bg {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
+    url(images/quote.webp);
+    background-size: cover;
+    position: relative;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Make sure it spans the entire viewport width */
+    margin-left: calc(50% - 50vw); /* Center the background */
+    margin-right: calc(50% - 50vw); /* Center the background */
+}
+
+.quote-bg h1 {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+}
+
+.contact-form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.contact-form-container {
+    width: 80%;
+    max-width: 1200px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.contact-form-container h1 {
+    font-family: 'Schibsted Grotesk', sans-serif;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #000;
+    font-size: 24px;
+}
+
+.contact-form-container form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-form-container .form-left, .contact-form-container .form-right {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-container label {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.contact-form-container input, .contact-form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+.contact-form-container .form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-form-container .form-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #233e59;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form-container .form-actions button[type="reset"] {
+    background-color: #aaa;
+}
+
+.contact-form-container .form-actions button:hover {
+    background-color: #182a3f;
+}
+
+.contact-form-container .form-actions button[type="reset"]:hover {
+    background-color: #888;
+}
+
+.contact-form-container .hidden {
+    display: none;
+}
+
+#form-message {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: green;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.required-note {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.required {
+    color: red;
+    margin-left: 5px;
+}
+
 
 @media(max-width: 860px) { /* 860 to 892 for capabiltiies */
 
@@ -1412,6 +1540,14 @@ hr {
     .milling .milling-container, .tuning .tuning-container,
     .cmm .cmm-container, .other .other-container {
         grid-template-columns: repeat(1,1fr);
+    }
+
+    .contact-form-container form {
+        flex-direction: column;
+    }
+
+    .contact-form-container .form-left, .contact-form-container .form-right {
+        width: 100%;
     }
 
 }
