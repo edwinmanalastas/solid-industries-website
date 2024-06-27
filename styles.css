@@ -1630,9 +1630,14 @@ hr {
     }
 
     /* gallery */
+
     .column {
-        flex: 1 1 calc(50% - 20px); /* 2 columns */
+        flex: 1 1 100%; /* 1 column */
     }
+
+    /* .column {
+        flex: 1 1 calc(50% - 20px);
+    }  /* 2 columns */
 
     .gallery {
         padding-left: 50px;
