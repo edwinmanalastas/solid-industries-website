@@ -1640,8 +1640,8 @@ hr {
     }  /* 2 columns */
 
     .gallery {
-        padding-left: 50px;
-        padding-right: 50px
+        padding-left: 25px;
+        padding-right: 25px
     }
 
 }
@@ -1671,5 +1671,9 @@ hr {
     /* gallery */
     .column {
         flex: 1 1 calc(33.33% - 20px); /* 3 columns */
+    }
+    .gallery {
+        padding-left: 50px;
+        padding-right: 50px
     }
 }
