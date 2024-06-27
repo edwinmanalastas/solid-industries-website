@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const video = document.createElement('video');
         video.src = `images/gallery/${i}.mp4`;
         video.controls = true;
-        video.poster = `images/gallery/${i}.jpg`; // Add this line to set the poster
+        //video.poster = `images/gallery/${i}.jpeg`; 
         div.appendChild(video);
         columns[Math.floor((i - 1) / 5)].appendChild(div); // 5 videos per column
     }
