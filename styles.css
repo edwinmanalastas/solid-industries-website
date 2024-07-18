@@ -1142,6 +1142,30 @@ hr {
     border: 5px solid #ccc; /* Add border to all sides */
 }
 
+.view-more-container {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+
+#view-more {
+    background-color: #233e59;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 15px 50px; /* button size */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+#view-more:hover {
+    background-color: #1a2c3e;
+}
+
+
 /* milling.html, tuning.html */
 
 .milling-bg, .tuning-bg, .cmm-bg, .other-bg {
