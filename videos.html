@@ -48,10 +48,18 @@
     <div class="gallery-container" id="video-gallery-container">
         <!-- Videos will be dynamically inserted here by JavaScript -->
     </div>
+    <div class="view-more-container">
+        <button id="view-more">VIEW MORE</button>
+    </div>
 </section>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const galleryContainer = document.getElementById('video-gallery-container');
+    const viewMoreButton = document.getElementById('view-more');
+    const videosPerLoad = 1;
+    let videosShown = 0;
+    const totalVideos = 14;
+    const videosPerColumn = Math.ceil(totalVideos / 3);
 
     // Create 3 columns
     for (let i = 0; i < 3; i++) {
@@ -63,17 +71,38 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get all columns
     const columns = document.getElementsByClassName('column');
 
-    // Add videos to columns
-    for (let i = 1; i <= 14; i++) {
-        const div = document.createElement('div');
-        div.classList.add('video-container');
-        const video = document.createElement('video');
-        video.src = `images/gallery/${i}.mp4`;
-        video.controls = true;
-        //video.poster = `images/gallery/${i}.jpeg`; 
-        div.appendChild(video);
-        columns[Math.floor((i - 1) / 5)].appendChild(div); // 5 videos per column
+    // Function to load videos
+    function loadVideos() {
+        for (let i = 0; i < columns.length; i++) {
+            const start = videosShown + i * videosPerColumn;
+            const end = Math.min(start + videosPerLoad, (i + 1) * videosPerColumn);
+
+            for (let j = start; j < end; j++) {
+                if (j < totalVideos) {
+                    const div = document.createElement('div');
+                    div.classList.add('video-container');
+                    const video = document.createElement('video');
+                    video.src = `images/gallery/${j + 1}.mp4`;
+                    video.controls = true;
+                    // video.poster = `images/gallery/${j + 1}.jpeg`; // Uncomment if you have poster images
+                    div.appendChild(video);
+                    columns[i].appendChild(div);
+                }
+            }
+        }
+        videosShown += videosPerLoad;
+
+        // Hide the button if all videos are shown
+        if (videosShown >= totalVideos) {
+            viewMoreButton.style.display = 'none';
+        }
     }
+
+    // Load initial videos
+    loadVideos();
+
+    // Add event listener for the button
+    viewMoreButton.addEventListener('click', loadVideos);
 });
 
 </script>
