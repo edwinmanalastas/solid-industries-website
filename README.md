@@ -5,7 +5,7 @@ This repository contains the ongoing updates for the Solid Industries website. T
 
 ## Current Features
 - Responsive Home Page
-- Going to tabs (services, capabilities, contact, gallery) (in progress)
+- Going to tabs (services, capabilities, contact, gallery)
 
 ## Upcoming Features
 - Additional interactive elements
